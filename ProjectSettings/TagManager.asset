@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hurtbox
+  - Hitbox
+  - Player1
+  - Player2
+  - P1Hitbox
+  - P2Hitbox
   layers:
   - Default
   - TransparentFX
