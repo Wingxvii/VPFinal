@@ -338,7 +338,7 @@ AnimatorStateTransition:
     m_ConditionEvent: _Special
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: IsCrouching
+    m_ConditionEvent: _DOWN
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 228841253482026423}
@@ -566,8 +566,8 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: _Special
     m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: IsCrouching
+  - m_ConditionMode: 1
+    m_ConditionEvent: _UP
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 9150124138088971340}
@@ -739,6 +739,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: _Special
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: _FORWARD
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4530843505272676969}
@@ -1084,6 +1087,30 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: _UP
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: _DOWN
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: _FORWARD
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: _BACK
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1209,8 +1236,17 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: _Special
     m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: _Punch
+  - m_ConditionMode: 2
+    m_ConditionEvent: _UP
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: _DOWN
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: _FORWARD
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: _BACK
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8662806645436253343}
@@ -1483,10 +1519,10 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 1715d29645ef48f48a33b4e63e904098, type: 2}
   m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_SpeedParameter: WalkingBlend
+  m_MirrorParameter: IsCrouching
   m_CycleOffsetParameter: 
-  m_TimeParameter: 
+  m_TimeParameter: WalkingBlend
 --- !u!1101 &5563458487359055337
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1496,10 +1532,10 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: IsWalking
+    m_ConditionEvent: _Special
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: _Special
+    m_ConditionEvent: _BACK
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -491944024302063648}
